@@ -236,7 +236,7 @@ See `ido-make-buffer-list' for more infos."
         (concat name-prefix
                 (propertize name 'face 'helm-ff-directory
                             'help-echo dir))
-        size mode
+        mode
         (and details (propertize (format "(in `%s')" dir) 'face 'helm-buffer-process))))
       ;; A buffer file modified somewhere outside of emacs.=>red
       ((and file-name (file-exists-p file-name)
@@ -245,7 +245,7 @@ See `ido-make-buffer-list' for more infos."
         (concat name-prefix
                 (propertize name 'face 'helm-buffer-saved-out
                             'help-echo file-name))
-        size mode
+        mode
         (and details (propertize (format "(in `%s')" dir) 'face 'helm-buffer-process))))
       ;; A new buffer file not already saved on disk.=>indianred2
       ((and file-name (not (verify-visited-file-modtime buf)))
@@ -253,7 +253,7 @@ See `ido-make-buffer-list' for more infos."
         (concat name-prefix
                 (propertize name 'face 'helm-buffer-not-saved
                             'help-echo file-name))
-        size mode
+        mode
         (and details (propertize (format "(in `%s')" dir) 'face 'helm-buffer-process))))
       ;; A buffer file modified and not saved on disk.=>orange
       ((and file-name (buffer-modified-p buf))
@@ -261,7 +261,7 @@ See `ido-make-buffer-list' for more infos."
         (concat name-prefix
                 (propertize name 'face 'helm-ff-symlink
                             'help-echo file-name))
-        size mode
+        mode
         (and details (propertize (format "(in `%s')" dir) 'face 'helm-buffer-process))))
       ;; A buffer file not modified and saved on disk.=>green
       (file-name
@@ -269,14 +269,14 @@ See `ido-make-buffer-list' for more infos."
         (concat name-prefix
                 (propertize name 'face 'font-lock-type-face
                             'help-echo file-name))
-        size mode
+        mode
         (and details (propertize (format "(in `%s')" dir) 'face 'helm-buffer-process))))
       ;; Any non--file buffer.=>grey italic
       (t (list
           (concat (when proc name-prefix)
                   (propertize name 'face 'italic
                               'help-echo buffer))
-          size mode
+          mode
           (and details
                (propertize
                 (if proc
