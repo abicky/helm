@@ -1470,15 +1470,14 @@ purpose."
   "List contents of DIRECTORY.
 Argument FULL mean absolute path.
 It is same as `directory-files' but always returns the
-dotted filename '.' and '..' even on root directories in Windows
+dotted filename '.' even on root directories in Windows
 systems."
   (setq directory (file-name-as-directory
                    (expand-file-name directory)))
   (let ((ls   (directory-files
                directory full directory-files-no-dot-files-regexp))
-        (dot  (concat directory "."))
-        (dot2 (concat directory "..")))
-    (append (list dot dot2) ls)))
+        (dot  (concat directory ".")))
+    (append (list dot) ls)))
 
 (defun helm-ff-handle-backslash (fname)
   ;; Allow creation of filenames containing a backslash.
