@@ -644,7 +644,6 @@ displayed with the `file-name-shadow' face if available."
                                          (helm-ediff-marked-buffers candidate t))))
       (persistent-help . "Show this buffer")
       (filtered-candidate-transformer helm-skip-boring-buffers
-                                      helm-buffers-sort-transformer
                                       helm-highlight-buffers))
   "Buffer or buffer name.")
 
