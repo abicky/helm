@@ -1174,7 +1174,6 @@ If prefix numeric arg is given go ARG level down."
             ((and cur-cand (file-exists-p cur-cand))
              (setq helm-ff-last-expanded cur-cand)))
       (helm-set-pattern new-pattern)
-      (with-helm-after-update-hook (helm-ff-retrieve-last-expanded))
       (helm-check-minibuffer-input))))
 
 (defun helm-ff-retrieve-last-expanded ()
