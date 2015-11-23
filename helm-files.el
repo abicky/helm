@@ -1362,8 +1362,7 @@ If prefix numeric arg is given go ARG level up."
                       helm-find-files--level-tree)))
         (setq helm-find-files--level-tree-iterator nil)
         (push new-pattern helm-find-files--level-tree)
-        (helm-set-pattern new-pattern helm-suspend-update-flag)
-        (with-helm-after-update-hook (helm-ff-retrieve-last-expanded))))))
+        (helm-set-pattern new-pattern helm-suspend-update-flag)))))
 
 (defun helm-find-files-down-last-level ()
   "Retrieve previous paths reached by `C-l' in helm-find-files."
