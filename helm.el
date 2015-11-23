@@ -2182,12 +2182,7 @@ It uses `switch-to-buffer' or `pop-to-buffer' depending of value of
           (and (eq helm-split-window-default-side 'same)
                (one-window-p t)))
       (progn (delete-other-windows) (switch-to-buffer buffer))
-    (when (and (or helm-always-two-windows helm-autoresize-mode
-                   (and (not helm-split-window-in-side-p)
-                        (eq (save-selected-window
-                              (funcall helm-split-window-preferred-function
-                                       (selected-window)))
-                            (get-buffer-window helm-current-buffer))))
+    (when (and (or helm-always-two-windows helm-autoresize-mode)
                (not (eq helm-split-window-default-side 'same))
                (not (minibufferp helm-current-buffer))
                (not helm-split-window-in-side-p))
