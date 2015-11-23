@@ -3382,7 +3382,6 @@ This is the starting point for nearly all actions you can do on files."
          (input-as-presel (null (nth 0 (file-attributes input))))
          (presel          (helm-aif (or hist
                                         (and input-as-presel input)
-                                        (buffer-file-name (current-buffer))
                                         (and (eq major-mode 'dired-mode)
                                              default-input))
                               (if helm-ff-transformer-show-only-basename
