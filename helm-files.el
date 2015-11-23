@@ -1750,7 +1750,7 @@ purpose."
   "List contents of DIRECTORY.
 Argument FULL mean absolute path.
 It is same as `directory-files' but always returns the
-dotted filename '.' and '..' even on root directories in Windows
+dotted filename '.' even on root directories in Windows
 systems."
   (setq directory (file-name-as-directory
                    (expand-file-name directory)))
@@ -1770,9 +1770,8 @@ systems."
                                     (car err)
                                     (mapconcat 'identity (cdr err) " ")))
                     (setq file-error t)))))
-        (dot  (concat directory "."))
-        (dot2 (concat directory "..")))
-    (append (and (not file-error) (list dot dot2)) ls)))
+        (dot  (concat directory ".")))
+    (append (and (not file-error) (list dot)) ls)))
 
 (defun helm-ff-handle-backslash (fname)
   ;; Allow creation of filenames containing a backslash.
