@@ -2284,7 +2284,7 @@ If a prefix arg is given or `helm-follow-mode' is on open file."
                                           (expand-file-name candidate))))
           ;; A symlink file, expand to it's true name. (first hit)
           ((and (file-symlink-p candidate) (not current-prefix-arg) (not follow))
-           (funcall insert-in-minibuffer (file-truename candidate)))
+           (funcall insert-in-minibuffer candidate))
           ;; A regular file, expand it, (first hit)
           ((and (>= num-lines-buf 3) (not current-prefix-arg) (not follow))
            (setq helm-pattern "")       ; Force update.
