@@ -2960,7 +2960,9 @@ Contiguous matches have a coefficient of 2."
                    candidate (helm-stringify candidate)))
          (pat-lookup (helm--collect-pairs-in-string pattern))
          (str-lookup (helm--collect-pairs-in-string cand))
-         (bonus (if (equal (car pat-lookup) (car str-lookup)) 1 0))
+         (bonus (if (equal (car pat-lookup) (car str-lookup))
+                    1
+                  (if (equal (car pat-lookup) (mapcar 'downcase (car str-lookup))) 0.5 0)))
          (bonus1 (and (string-match (concat "\\<" (regexp-quote pattern) "\\>")
                                     cand)
                       100)))
