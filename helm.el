@@ -2971,7 +2971,7 @@ Contiguous matches have a coefficient of 2."
                  ;; starts by "wi".
                  (/ (length (cl-nintersection
                              pat-lookup str-lookup :test 'equal))
-                    (length candidate))))))
+                    (float (length candidate)))))))
 
 (defun helm-fuzzy-matching-default-sort-fn (candidates _source &optional use-real)
   "The transformer for sorting candidates in fuzzy matching.
