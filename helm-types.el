@@ -159,7 +159,6 @@
   (set-slot-value
    source 'filtered-candidate-transformer
    '(helm-skip-boring-buffers
-     helm-buffers-sort-transformer
      helm-highlight-buffers)))
 
 ;; Functions
