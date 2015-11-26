@@ -2965,13 +2965,13 @@ Contiguous matches have a coefficient of 2."
                                     cand)
                       100)))
     (+ bonus (or bonus1
-                 ;; Give a coefficient of 2 for contiguous matches.
+                 ;; Give a bonus for contiguous matches.
                  ;; That's mean that "wiaaaki" will not take precedence
                  ;; on "aaawiki" when matching on "wiki" even if "wiaaaki"
                  ;; starts by "wi".
-                 (* (length (cl-nintersection
+                 (/ (length (cl-nintersection
                              pat-lookup str-lookup :test 'equal))
-                    2)))))
+                    (length candidate))))))
 
 (defun helm-fuzzy-matching-default-sort-fn (candidates _source &optional use-real)
   "The transformer for sorting candidates in fuzzy matching.
